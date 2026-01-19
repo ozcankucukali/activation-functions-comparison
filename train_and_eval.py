@@ -227,8 +227,8 @@ def main():
     # Activation arguments
     parser.add_argument('--activations', nargs='+', 
                        choices=AVAILABLE_ACTIVATIONS,
-                       default=['relu', 's2lu', 'loclu'],
-                       help='Activation functions to test (default: relu, s2lu, loclu)')
+                       default=['relu', 's2lu'],
+                       help='Activation functions to test (default: relu, s2lu)')
     
     # Training arguments
     parser.add_argument('--epochs', type=int, default=100,
