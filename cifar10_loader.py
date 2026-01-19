@@ -5,7 +5,7 @@ import torchvision.transforms as transforms
 def get_cifar10_dataloaders(batch_size=128, num_workers=2, data_dir='./data'):
     """CIFAR-10 dataset loader with data augmentation"""
     
-    # Training transforms with data augmentation (orijinal koda sadık)
+    # Training transforms with data augmentation
     train_transform = transforms.Compose([
         transforms.RandomCrop(32, padding=4),
         transforms.RandomHorizontalFlip(),
