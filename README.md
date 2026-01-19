@@ -54,7 +54,7 @@ This repository offers two different types of analysis:
 - **Swish**: x * sigmoid(x)
 
 ### Custom Activation Functions
-- **S2LU (Self-Stabilized Linear Unit)**:
+- **S2LU**:
 
 S2LU(x) = ((1 + (x + α) / √(β + x²)) / 2) * x
 α = 0.0025, β = 5.0
