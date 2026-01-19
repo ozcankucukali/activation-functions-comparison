@@ -92,16 +92,16 @@ Usage
 CNN Performance Analysis
 
 # Single model, single activation - quick test
-python train_and_eval.py --models resnet50 --activations sslu --epochs 10 --num_trials 1
+python train_and_eval.py --models resnet50 --activations s2lu --epochs 10 --num_trials 1
 
 # S2LU vs LoCLU comparison
-python train_and_eval.py --models resnet50 --activations sslu cahlu --epochs 20 --num_trials 3
+python train_and_eval.py --models resnet50 --activations s2lu loclu --epochs 20 --num_trials 3
 
 # Multiple models test
-python train_and_eval.py --models resnet50 vgg16 densenet121 --activations relu sslu cahlu --epochs 50
+python train_and_eval.py --models resnet50 vgg16 densenet121 --activations relu s2lu loclu --epochs 50
 
 # CIFAR-100 test
-python train_and_eval.py --dataset cifar100 --models resnet50 --activations sslu cahlu --epochs 100
+python train_and_eval.py --dataset cifar100 --models resnet50 --activations s2lu loclu --epochs 100
 
 
 Gradient Stability Analysis
@@ -130,18 +130,18 @@ resnet50, senet18, googlenet, vgg16, densenet121, densenet_cifar, mobilenet_v1, 
 
 Available Activation Functions
 
-relu, leaky_relu, elu, gelu, mish, swish, sslu, cahlu
+relu, leaky_relu, elu, gelu, mish, swish, s2lu, lochlu
 
 Quick Test Examples
 
 #  Very quick test 
-python train_and_eval.py --models resnet50 --activations sslu --epochs 5 --num_trials 1 --batch_size 64
+python train_and_eval.py --models resnet50 --activations s2lu --epochs 5 --num_trials 1 --batch_size 64
 
 #  Comparison test  
-python train_and_eval.py --models resnet50 vgg16 --activations relu sslu cahlu --epochs 10 --num_trials 1
+python train_and_eval.py --models resnet50 vgg16 --activations relu s2lu loclu --epochs 10 --num_trials 1
 
 #  Full academic test 
-python train_and_eval.py --models resnet50 senet18 vgg16 densenet121 --activations relu sslu cahlu --epochs 100 --num_trials 5
+python train_and_eval.py --models resnet50 senet18 vgg16 densenet121 --activations relu s2lu loclu --epochs 100 --num_trials 5
 
 References
 
