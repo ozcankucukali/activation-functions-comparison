@@ -4,7 +4,7 @@ import numpy as np
 
 class S2LU(nn.Module):
     """
-    S2LU (Self-Stabilized Linear Unit) Activation Function
+    S2LU Activation Function
     
     Formula: ((1 + (x + alpha) / sqrt(beta + x²)) / 2) * x
     
@@ -23,28 +23,3 @@ class S2LU(nn.Module):
     
     def extra_repr(self):
         return f'alpha={self.alpha}, beta={self.beta}'
-
-class LoCLU(nn.Module):
-    """
-    LoCLU (Custom Hyperbolic Linear Unit) Activation Function
-    
-    Formula: alpha * x * log(1.5 + atan(x) / π)
-    
-    Args:
-        alpha (float): Scaling parameter (default: 1.444)
-    """
-    def __init__(self, alpha=1.444):
-        super(LoCLU, self).__init__()
-        self.alpha = alpha
-        self.pi = torch.tensor(np.pi)
-    
-    def forward(self, x):
-        # Convert to tensor if numpy constant is used
-        if not isinstance(self.pi, torch.Tensor):
-            self.pi = torch.tensor(np.pi, device=x.device, dtype=x.dtype)
-        
-        result = self.alpha * x * torch.log(1.5 + torch.atan(x) / self.pi)
-        return result
-    
-    def extra_repr(self):
-        return f'alpha={self.alpha}'
