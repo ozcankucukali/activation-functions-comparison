@@ -85,8 +85,7 @@ def create_deep_model(activation, num_layers):
 layers_to_test = [50]  # Manuel olarak artırılıp azaltılabilir
 
 activation_functions = {
-    'LoCLU': 'cahlu',
-    'S2LU': 'sslu',
+    'S2LU': 's2lu',
    # 'ReLU': 'relu',
    # 'Leaky ReLU': 'leaky_relu',
    # 'ELU': 'elu',
