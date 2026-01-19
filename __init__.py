@@ -16,8 +16,8 @@ def get_activation(activation_name, **kwargs):
         'gelu': GELU,
         'mish': Mish,
         'swish': Swish,
-        'sslu': S2LU,
-        'cahlu': LoCLU,
+        's2lu': S2LU,
+        'loclu': LoCLU,
     }
     
     activation_name = activation_name.lower()
