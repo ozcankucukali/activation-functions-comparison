@@ -17,12 +17,12 @@ from cifar100_loader import get_cifar100_dataloaders
 
 # Import models
 sys.path.append(os.path.join(os.path.dirname(__file__), 'models'))
-from resnet50_custom import ResNet50              # models. kaldırın
-from senet18_custom import SENet18                # models. kaldırın
-from googlenet_custom import googlenet            # models. kaldırın
-from vgg16_custom import VGG16                    # models. kaldırın
-from densenet121_custom import DenseNet121, densenet_cifar  # models. kaldırın
-from mobilenet_custom import MobileNetV1, MobileNetV2_model # models. kaldırın
+from resnet50_custom import ResNet50              
+from senet18_custom import SENet18                
+from googlenet_custom import googlenet            
+from vgg16_custom import VGG16                    
+from densenet121_custom import DenseNet121, densenet_cifar  
+from mobilenet_custom import MobileNetV1, MobileNetV2_model 
 
 # Import activations
 from activations import AVAILABLE_ACTIVATIONS
