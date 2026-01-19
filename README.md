@@ -1,6 +1,6 @@
 # CNN Activation Functions Comparison
 
-This repository is designed to compare the performance of SSLU and CahLU activation functions with various CNN models. This study is based on the framework described in S. R. Dubey, S. K. Singh, and B. B. Chaudhuri's "Activation functions in deep learning: A comprehensive survey and benchmark".
+This repository is designed to compare the performance of S2LU and LoCLU activation functions with various CNN models. This study is based on the framework described in S. R. Dubey, S. K. Singh, and B. B. Chaudhuri's "Activation functions in deep learning: A comprehensive survey and benchmark".
 
 ## 📁 Repository Structure
 ├── models/
@@ -14,7 +14,7 @@ This repository is designed to compare the performance of SSLU and CahLU activat
 ├── activations/
 │   ├── init.py             # Activation factory
 │   ├── standard_activations.py # Standard activation functions
-│   └── custom_activations.py   # SSLU and CahLU implementations
+│   └── custom_activations.py   # S2LU and LoCLU implementations
 ├── datasets/
 │   ├── cifar10_loader.py       # CIFAR-10 dataset loader
 │   └── cifar100_loader.py      # CIFAR-100 dataset loader
@@ -54,14 +54,14 @@ This repository offers two different types of analysis:
 - **Swish**: x * sigmoid(x)
 
 ### Custom Activation Functions
-- **SSLU (Self-Stabilized Linear Unit)**:
+- **S2LU (Self-Stabilized Linear Unit)**:
 
-SSLU(x) = ((1 + (x + α) / √(β + x²)) / 2) * x
+S2LU(x) = ((1 + (x + α) / √(β + x²)) / 2) * x
 α = 0.0025, β = 5.0
 
-- **CahLU (Custom Hyperbolic Linear Unit)**:
+- **LoCLU (Custom Hyperbolic Linear Unit)**:
 
-CahLU(x) = α * x * log(1.5 + atan(x) / π)
+LoCLU(x) = α * x * log(1.5 + atan(x) / π)
 α = 1.444
 
 ##  CNN Models
@@ -94,7 +94,7 @@ CNN Performance Analysis
 # Single model, single activation - quick test
 python train_and_eval.py --models resnet50 --activations sslu --epochs 10 --num_trials 1
 
-# SSLU vs CahLU comparison
+# S2LU vs LoCLU comparison
 python train_and_eval.py --models resnet50 --activations sslu cahlu --epochs 20 --num_trials 3
 
 # Multiple models test
