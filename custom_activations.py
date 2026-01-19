@@ -2,9 +2,9 @@ import torch
 import torch.nn as nn
 import numpy as np
 
-class SSLU(nn.Module):
+class S2LU(nn.Module):
     """
-    SSLU (Self-Stabilized Linear Unit) Activation Function
+    S2LU (Self-Stabilized Linear Unit) Activation Function
     
     Formula: ((1 + (x + alpha) / sqrt(beta + x²)) / 2) * x
     
@@ -13,7 +13,7 @@ class SSLU(nn.Module):
         beta (float): Second parameter (default: 5.0)
     """
     def __init__(self, alpha=0.0025, beta=5.0):
-        super(SSLU, self).__init__()
+        super(S2LU, self).__init__()
         self.alpha = alpha
         self.beta = beta
     
@@ -24,9 +24,9 @@ class SSLU(nn.Module):
     def extra_repr(self):
         return f'alpha={self.alpha}, beta={self.beta}'
 
-class CahLU(nn.Module):
+class LoCLU(nn.Module):
     """
-    CahLU (Custom Hyperbolic Linear Unit) Activation Function
+    LoCLU (Custom Hyperbolic Linear Unit) Activation Function
     
     Formula: alpha * x * log(1.5 + atan(x) / π)
     
@@ -34,7 +34,7 @@ class CahLU(nn.Module):
         alpha (float): Scaling parameter (default: 1.444)
     """
     def __init__(self, alpha=1.444):
-        super(CahLU, self).__init__()
+        super(LoCLU, self).__init__()
         self.alpha = alpha
         self.pi = torch.tensor(np.pi)
     
