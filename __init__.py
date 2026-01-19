@@ -4,7 +4,7 @@ import torch.nn as nn
 from .standard_activations import ReLU, LeakyReLU, ELU, GELU, Mish, Swish
 
 # Import custom activations  
-from .custom_activations import S2LU, LoCLU
+from .custom_activations import S2LU
 
 def get_activation(activation_name, **kwargs):
     """Factory function to get activation functions by name"""
@@ -16,8 +16,7 @@ def get_activation(activation_name, **kwargs):
         'gelu': GELU,
         'mish': Mish,
         'swish': Swish,
-        's2lu': S2LU,
-        'loclu': LoCLU,
+        's2lu': S2LU
     }
     
     activation_name = activation_name.lower()
@@ -30,7 +29,7 @@ def get_activation(activation_name, **kwargs):
 
 # Available activation functions
 AVAILABLE_ACTIVATIONS = [
-    'relu', 'leaky_relu', 'elu', 'gelu', 'mish', 'swish', 'sslu', 'cahlu'
+    'relu', 'leaky_relu', 'elu', 'gelu', 'mish', 'swish', 's2lu', 'ioclu'
 ]
 
 __all__ = [
