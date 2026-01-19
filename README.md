@@ -1,6 +1,6 @@
 # CNN Activation Functions Comparison
 
-This repository is designed to compare the performance of S2LU and LoCLU activation functions with various CNN models. This study is based on the framework described in S. R. Dubey, S. K. Singh, and B. B. Chaudhuri's "Activation functions in deep learning: A comprehensive survey and benchmark".
+This repository is designed to compare the performance of S2LU  activation function with various CNN models. This study is based on the framework described in S. R. Dubey, S. K. Singh, and B. B. Chaudhuri's "Activation functions in deep learning: A comprehensive survey and benchmark".
 
 ## 📁 Repository Structure
 ├── models/
@@ -14,7 +14,7 @@ This repository is designed to compare the performance of S2LU and LoCLU activat
 ├── activations/
 │   ├── init.py             # Activation factory
 │   ├── standard_activations.py # Standard activation functions
-│   └── custom_activations.py   # S2LU and LoCLU implementations
+│   └── custom_activations.py   # S2LU  implementation
 ├── datasets/
 │   ├── cifar10_loader.py       # CIFAR-10 dataset loader
 │   └── cifar100_loader.py      # CIFAR-100 dataset loader
@@ -59,11 +59,6 @@ This repository offers two different types of analysis:
 S2LU(x) = ((1 + (x + α) / √(β + x²)) / 2) * x
 α = 0.0025, β = 5.0
 
-- **LoCLU (Custom Hyperbolic Linear Unit)**:
-
-LoCLU(x) = α * x * log(1.5 + atan(x) / π)
-α = 1.444
-
 ##  CNN Models
 
 - **ResNet50**: Residual Network with 50 layers
@@ -94,14 +89,14 @@ CNN Performance Analysis
 # Single model, single activation - quick test
 python train_and_eval.py --models resnet50 --activations s2lu --epochs 10 --num_trials 1
 
-# S2LU vs LoCLU comparison
-python train_and_eval.py --models resnet50 --activations s2lu loclu --epochs 20 --num_trials 3
+# S2LU comparison
+python train_and_eval.py --models resnet50 --activations s2lu  --epochs 20 --num_trials 3
 
 # Multiple models test
-python train_and_eval.py --models resnet50 vgg16 densenet121 --activations relu s2lu loclu --epochs 50
+python train_and_eval.py --models resnet50 vgg16 densenet121 --activations relu s2lu --epochs 50
 
 # CIFAR-100 test
-python train_and_eval.py --dataset cifar100 --models resnet50 --activations s2lu loclu --epochs 100
+python train_and_eval.py --dataset cifar100 --models resnet50 --activations s2lu --epochs 100
 
 
 Gradient Stability Analysis
@@ -130,7 +125,7 @@ resnet50, senet18, googlenet, vgg16, densenet121, densenet_cifar, mobilenet_v1, 
 
 Available Activation Functions
 
-relu, leaky_relu, elu, gelu, mish, swish, s2lu, lochlu
+relu, leaky_relu, elu, gelu, mish, swish, s2lu
 
 Quick Test Examples
 
@@ -138,10 +133,10 @@ Quick Test Examples
 python train_and_eval.py --models resnet50 --activations s2lu --epochs 5 --num_trials 1 --batch_size 64
 
 #  Comparison test  
-python train_and_eval.py --models resnet50 vgg16 --activations relu s2lu loclu --epochs 10 --num_trials 1
+python train_and_eval.py --models resnet50 vgg16 --activations relu s2lu  --epochs 10 --num_trials 1
 
-#  Full academic test 
-python train_and_eval.py --models resnet50 senet18 vgg16 densenet121 --activations relu s2lu loclu --epochs 100 --num_trials 5
+#  Full test 
+python train_and_eval.py --models resnet50 senet18 vgg16 densenet121 --activations relu s2lu  --epochs 100 --num_trials 5
 
 References
 
